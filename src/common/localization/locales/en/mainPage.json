@@ -1,0 +1,20 @@
+{
+    "en": {
+        "MainPage": {
+            "Date": "Date:",
+            "Time": "Time:",
+            "Type": "Type:",
+            "RESET": "RESET",
+            "Reject":"Reject",
+            "Clear":"Clear",
+            "Save": "Save",
+            "Cancel": "Cancel",
+            "Configuration": "Configuration",
+            "Logout": "Logout",
+            "Confirm": "Confirm",
+            "Edit": "Edit",
+            "Delete": "Delete",
+            "Category":"Category"
+        }
+    }
+}

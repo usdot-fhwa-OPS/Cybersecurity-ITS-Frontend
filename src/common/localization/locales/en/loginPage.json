@@ -1,0 +1,12 @@
+{
+    "en": {
+        "login": {
+            "title":            "ITS Admin Panel",
+            "language":         "Language",
+            "username":         "User Name",
+            "password":         "Password",
+            "signIn":           "Sign In",
+            "pleaseLogInAgain": "Please log in again."
+        }
+    }
+}
