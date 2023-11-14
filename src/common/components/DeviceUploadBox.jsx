@@ -119,8 +119,6 @@ function UploadDeviceDialog({openDeviceUploadDialog, setDeviceUploadDialog, show
                             <ul>{acceptedFileItems}</ul>
                             <h4>Rejected files</h4>
                             <ul>{fileRejectionItems}</ul>
-
-                            <h6>{files}</h6>
                         </aside>
                         </section>
                     )}
