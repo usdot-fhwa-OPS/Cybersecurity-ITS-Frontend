@@ -9,6 +9,7 @@ import { AppTheme } from '../theme/AppTheme'
 import { UserApi } from '../api/UserApi';
 import { DeviceApi } from '../api/DeviceApi';
 import CustomNoRowsOverlay from '../common/components/EmptyTableEmblem';
+import { UploadDeviceDialog } from '../common/components/DeviceUploadBox';
 
 function DevicesPage() {
 
@@ -22,9 +23,11 @@ function DevicesPage() {
     const [userCheckList, setUserCheckList] = useState([]);
 
     const [openDeviceCreateDialog, setDeviceCreateDialog] = useState(false);
+    const [openDeviceUploadDialog, setDeviceUploadDialog] = useState(false);
+
     const [responseStatusCheck, setHandleStatusCheck] = useState(null);
 
-    const userButtons = ["DEVICES PAGE", "Get Device List", "Create Device", "Delete Device"]
+    const userButtons = ["DEVICES PAGE", "Get Device List", "Create Device", "Delete Device", "Upload Device Config File"]
 
     useEffect(() => {
         if (responseStatusCheck != null){
@@ -115,6 +118,8 @@ function DevicesPage() {
             case "Delete Device":
                 handleDeleteDeviceButton();
                 return
+            case "Upload Device Config File": 
+                handleUploadDeviceButton();
             default:
                 return;
         }
@@ -151,6 +156,10 @@ function DevicesPage() {
 
     const handleCreateDeviceButton = async () => {
         setDeviceCreateDialog(true);
+    }
+
+    const handleUploadDeviceButton = async () => {
+        setDeviceUploadDialog(true);
     }
 
     const handleDeleteDeviceButton = async () => {
@@ -225,6 +234,26 @@ function DevicesPage() {
         }
 
     };
+
+    const sendUploadCommand = async (deviceListToUpload) => {
+        if (!deviceListToUpload) {
+            return;
+        }
+        console.log(deviceListToUpload)
+        try {
+            let response = await DeviceApi.putDevice(deviceListToUpload)
+
+            console.log("response: ")
+            console.log(response)
+
+            if (checkStatusCode(response, showAlertMessage)) {
+                await refreshDeviceList(false)
+            }
+        }
+        catch {
+            console.log("falling in catch")
+        }
+    }
 
     const columnAttributes = [
         { field: 'DeviceBrand', headerName: 'Device Brand', flex: 0.5  },
@@ -301,6 +330,13 @@ function DevicesPage() {
                     sendCreateCommand={sendCreateCommand}
                 >
                 </CreateDeviceDialog>
+                <UploadDeviceDialog sx={{ width: "100%", maxWidth: 1000, height: "20px" }}
+                    openDeviceUploadDialog={openDeviceUploadDialog}
+                    setDeviceUploadDialog={setDeviceUploadDialog}
+                    showAlertMessage={showAlertMessage}
+                    sendUploadCommand={sendUploadCommand}
+                >
+                </UploadDeviceDialog>
             </Grid>
         </Box>
     );

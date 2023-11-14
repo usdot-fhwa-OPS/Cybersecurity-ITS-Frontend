@@ -79,3 +79,9 @@ div.gaussian {
 input[type="range"].verticle {
   position: relative;
 }
+/* styles.css */
+.dropzone {
+  width : 100%;
+  height : 20%;
+  border : 1px solid black;
+}

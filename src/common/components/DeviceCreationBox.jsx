@@ -38,7 +38,6 @@ function CreateDeviceDialog({openDeviceCreateDialog, setDeviceCreateDialog, show
         } 
         else {
             let formattedAttr = createAttributeList();
-
             sendCreateCommand(formattedAttr);
             setDeviceValues(Array(deviceAttributesFull.length).fill(""));
             setDeviceCreateDialog(false);
