@@ -17,5 +17,5 @@ This repository contains the source code for the user-facing frontend components
 - `theme/`: Theme definition for the application
 
 ## Related Repositories:
- - [ITS-ITS-Secure-Prototype-Backend](https://github.com/usdot-fhwa-OPS/ITS-Secure-Prototype-Backend): The backend cloud services to connect technician and vendor users.
+ - [ITS-Secure-Prototype-Backend](https://github.com/usdot-fhwa-OPS/ITS-Secure-Prototype-Backend): The backend cloud services to connect technician and vendor users.
  - [ITS-Secure-Prototype-App](https://github.com/usdot-fhwa-OPS/ITS-Secure-Prototype-App): The mobile application for use by field technicians
